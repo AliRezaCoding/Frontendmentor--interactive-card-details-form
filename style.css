@@ -1,0 +1,137 @@
+
+
+:root{
+    /* (active input border) */
+    --Linear-gradient: hsl(249, 99%, 64%) to hsl(278, 94%, 30%);
+    /* (input errors) */
+    --Red: hsl(0, 100%, 66%);
+
+    --White: hsl(0, 0%, 100%);
+    --Light-grayish-violet: hsl(270, 3%, 87%);
+    --Dark-grayish-violet: hsl(279, 6%, 55%);
+    --Very-dark-violet: hsl(278, 68%, 11%);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: system-ui;
+    font-size: 1.8rem;
+    min-height: 100vh;
+}
+
+/* Mobile first design */
+
+.main{
+    max-width: 375px;
+    margin: 0 auto;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 220px auto;
+}
+
+.cards{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    background-image: url(images/bg-main-mobile.png);
+    background-size: cover;
+}
+.card__front,
+.card__back{
+    position: absolute;
+    width: 25rem;
+    height: 15rem;
+    /* border-radius: 5px;
+    overflow: hidden; */
+}
+.card__front{
+    bottom: -4rem;
+    z-index: 10;
+    margin-right: 2.5rem;
+    background-image: url(images/bg-card-front.png);
+    background-size: cover;
+}
+.card__back{
+    top: 3rem;
+    z-index: 5;
+    margin-left: 3rem;
+    background-image: url(images/bg-card-back.png);
+    background-size: cover;
+    background-position: top center;
+}
+.card__logo{}
+.card__number{}
+.card__owner{}
+.card__date{}
+.card__cvc{}
+.details{}
+.form{
+    display: none;
+}
+.form__control{}
+.form__label{}
+.form__input-name{}
+.form__input-number{}
+.form__label--error{}
+.form__input-month{}
+.form__input-year{}
+.form__input-cvc{}
+.form__btn{}
+.hidden{
+    display: none;
+}
+
+@media screen and (min-width: 768px) {
+    .main{
+        max-width: 100%;
+        grid-template-columns: minmax(300px, .25fr) auto;
+        grid-template-rows: auto;
+    }
+    .cards{
+        background-image: url(images/bg-main-desktop.png);
+    }
+    .card__front,
+    .card__back{
+        width: 32rem;
+        height: 19rem;
+    }
+    .card__front{
+        bottom: 52%;
+        right: -25%;
+    }
+    .card__back{
+        top: 52%;
+        right: -50%;
+    }
+    .card__logo{}
+    .card__number{}
+    .card__owner{}
+    .card__date{}
+    .card__cvc{}
+    .details{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .form{}
+    .form__control{}
+    .form__label{}
+    .form__input-name{}
+    .form__input-number{}
+    .form__label--error{}
+    .form__input-month{}
+    .form__input-year{}
+    .form__input-cvc{}
+    .form__btn{}
+}

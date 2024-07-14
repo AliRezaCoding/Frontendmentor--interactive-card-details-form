@@ -1,51 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Interactive card details form</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
-
-  0000 0000 0000 0000
-  Jane Appleseed
-  00/00
-
-  000
-
-  Cardholder Name
-  e.g. Jane Appleseed
-
-  Card Number
-  e.g. 1234 5678 9123 0000
-
-  Exp. Date (MM/YY)
-  MM
-  YY
-
-  CVC
-  e.g. 123
-
-  Confirm
-
-  <!-- Completed state start -->
-
-  Thank you!
-  We've added your card details
-  Continue
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./images/favicon-32x32.png" />
+        <link rel="stylesheet" href="style.css" />
+        <title>Frontend Mentor | Interactive card details form</title>
+    </head>
+    <body>
+        <main class="main">
+            <section class="cards">
+                <div class="card__front">
+                    <img class="card__logo" src="images/card-logo.svg" alt="Card Logo" />
+                    <span class="card__number">0000 0000 0000 0000</span>
+                    <span class="card__owner">jane appleseed</span>
+                    <span class="card__date">00/00</span>
+                </div>
+                <div class="card__back">
+                    <span class="card__cvc">123</span>
+                </div>
+            </section>
+            <section class="details">
+                <form action="#" class="form">
+                    <div class="form__control">
+                        <label class="form__label" for="input-name"
+                            >Cardholder Name</label
+                        >
+                        <input
+                            class="form__input-name"
+                            id="input-name"
+                            type="text"
+                            placeholder="e.g. Jane Appleseed" />
+                    </div>
+                    <div class="form__control">
+                        <label class="form__label" for="input-card-number"
+                            >Card Number</label
+                        >
+                        <input
+                            class="form__input-number"
+                            id="input-card-number"
+                            type="text"
+                            placeholder="e.g. 1234 5678 9123 0000" />
+                        <label
+                            class="form__label--error hidden"
+                            for="input-card-number"
+                            >this is an error</label
+                        >
+                    </div>
+                    <div class="form__control">
+                        <label class="form__label" for="input-month"
+                            >Exp. Date (MM/YY)</label
+                        >
+                        <input
+                            class="form__input-month"
+                            id="input-month"
+                            type="number"
+                            placeholder="MM" />
+                        <input
+                            class="form__input-year"
+                            type="number"
+                            placeholder="YY" />
+                        <label class="form__label--error hidden" for="input-month"
+                            >this is an error</label
+                        >
+                    </div>
+                    <div class="form__control">
+                        <label class="form__label" for="">CVC</label>
+                        <input
+                            class="form__input-cvc"
+                            id="input-cvc"
+                            type="number"
+                            placeholder="e.g. 123 Confirm" />
+                        <label class="form__label--error" for="input-cvc"
+                            >this is an error</label
+                        >
+                    </div>
+                    <button class="form__btn">Confirm</button>
+                </form>
+    
+                <!-- Completed state start -->
+                <!-- Thank you! We've added your card details Continue -->
+            </section>
+        </main>
+    </body>
 </html>
