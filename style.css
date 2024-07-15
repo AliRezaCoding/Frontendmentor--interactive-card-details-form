@@ -10,6 +10,7 @@
     --Light-grayish-violet: hsl(270, 3%, 87%);
     --Dark-grayish-violet: hsl(279, 6%, 55%);
     --Very-dark-violet: hsl(278, 68%, 11%);
+    --Color-box-shadow: rgba(0, 0, 0, 0.2);
 }
 
 *{
@@ -32,8 +33,7 @@ body{
 /* Mobile first design */
 
 .main{
-    max-width: 375px;
-    margin: 0 auto;
+    width: 100%;
     min-height: 100vh;
     display: grid;
     grid-template-columns: 1fr;
@@ -50,10 +50,10 @@ body{
 .card__front,
 .card__back{
     position: absolute;
-    width: 25rem;
+    width: 27rem;
     height: 15rem;
-    /* border-radius: 5px;
-    overflow: hidden; */
+    border-radius: 5px;
+    box-shadow: 1px 15px 30px var(--Color-box-shadow);
 }
 .card__front{
     bottom: -4rem;
@@ -61,40 +61,151 @@ body{
     margin-right: 2.5rem;
     background-image: url(images/bg-card-front.png);
     background-size: cover;
+    background-position: center;
+    padding: 1.8rem;
 }
 .card__back{
-    top: 3rem;
+    top: 2.4rem;
     z-index: 5;
     margin-left: 3rem;
     background-image: url(images/bg-card-back.png);
     background-size: cover;
     background-position: top center;
 }
-.card__logo{}
-.card__number{}
-.card__owner{}
-.card__date{}
-.card__cvc{}
-.details{}
-.form{
-    display: none;
+.card__logo{
+    width: 6rem;
+    height: 6rem;
 }
-.form__control{}
-.form__label{}
-.form__input-name{}
-.form__input-number{}
-.form__label--error{}
-.form__input-month{}
-.form__input-year{}
-.form__input-cvc{}
-.form__btn{}
+.card__logo img{
+    max-width: 100%;
+    height: auto;
+}
+.card__number{
+    font-size: 2rem;
+    letter-spacing: 2px;
+    display: block;
+    color: var(--White);
+}
+.card__bottom{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+.card__owner,
+.card__date{
+    display: inline;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    color: var(--White);
+}
+.card__owner{
+    text-transform: uppercase;
+}
+.card__cvc{
+    font-size: 1.6rem;
+    font-weight: 600;
+    position: absolute;
+    top: 6.2rem;
+    right: 3rem;
+    color: var(--Light-grayish-violet);
+}
+.details{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+}
+.form{
+    max-width: 37.5rem;
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 7rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        'name name'
+        'number number'
+        'exp cvc'
+        'btn btn'
+    ;
+}
+.form__control{
+    display: flex;
+    flex-direction: column;
+}
+.form__control--name{
+    grid-area: name;
+}
+.form__control--number{
+    grid-area: number;
+}
+.form__control--exp{
+    grid-area: exp;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    column-gap: 1.5rem;
+}
+.form__control--cvc{
+    grid-area: cvc;
+}
+.form__btn{
+    grid-area: btn;
+    border: none;
+    outline: none;
+    letter-spacing: 1px;
+    background: var(--Very-dark-violet);
+    color: var(--White);
+    border-radius: 5px;
+    padding: 1.2rem;
+}
+.form__label, .form__label--error{
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--Very-dark-violet);
+}
+.form__label{
+    text-transform: uppercase;
+}
+.form__label--error{
+    color: var(--Red);
+    margin-top: 5px;
+}
+.form__input{
+    outline: none;
+    font-size: 1.6rem;
+    width: 100%;
+    border: 1px solid var(--Light-grayish-violet);
+    border-radius: 5px;
+    padding: 1rem 1.2rem;
+    margin-top: .8rem;
+}
+.form__input:focus{
+    border-color: var(--Linear-gradient);
+}
+.form__input--error{
+    border-color: var(--Red);
+}
+.form__control--exp label{
+    grid-column: 1 / -1;
+}
+.form__control--exp .form__input-month{
+    grid-column: 1 / span 1;
+}
+.form__control--exp .form__input-year{
+    grid-column: 2 / span 1;
+}
+.form__input::placeholder{
+    font-weight: 600;
+    color: var(--Light-grayish-violet);
+}
 .hidden{
     display: none;
 }
 
 @media screen and (min-width: 768px) {
     .main{
-        max-width: 100%;
         grid-template-columns: minmax(300px, .25fr) auto;
         grid-template-rows: auto;
     }
@@ -103,8 +214,11 @@ body{
     }
     .card__front,
     .card__back{
-        width: 32rem;
+        width: 33rem;
         height: 19rem;
+        border-radius: 7px;
+        margin-left: 0;
+        margin-right: 0;
     }
     .card__front{
         bottom: 52%;
@@ -114,24 +228,28 @@ body{
         top: 52%;
         right: -50%;
     }
-    .card__logo{}
-    .card__number{}
-    .card__owner{}
-    .card__date{}
-    .card__cvc{}
-    .details{
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    .card__logo{
+        width: 7rem;
+        height: 7rem;
     }
-    .form{}
-    .form__control{}
-    .form__label{}
-    .form__input-name{}
-    .form__input-number{}
-    .form__label--error{}
-    .form__input-month{}
-    .form__input-year{}
-    .form__input-cvc{}
-    .form__btn{}
+    .card__number{
+        margin-top: 2rem;
+    }
+    .card__bottom{
+        margin-top: 2rem;
+    }
+    .card__owner,
+    .card__date{
+        font-size: 1.2rem;
+        letter-spacing: 2px;
+    }
+    .card__cvc{
+        right: 3rem;
+        top: 8.2rem;
+    }
+    .form{
+        max-width: 45rem;
+        margin-left: 15rem;
+        margin-top: 0;
+    }
 }
