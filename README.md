@@ -26,8 +26,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://www.frontendmentor.io/solutions/interactive-card-details-coding-challenge-solution-xd9TRBBKyK)
-- Live Site URL: [Add live site URL here](https://wondrous-torte-6e8272.netlify.app/)
+- Solution URL: [solution URL here](https://www.frontendmentor.io/solutions/interactive-card-details-coding-challenge-solution-xd9TRBBKyK)
+- Live Site URL: [live site URL here](https://wondrous-torte-6e8272.netlify.app/)
 
 ### Built with
 
@@ -41,4 +41,4 @@ Users should be able to:
 
 ## Author
 
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/AliRezaCoding)
+- Frontend Mentor - [@alirezacoding](https://www.frontendmentor.io/profile/AliRezaCoding)
