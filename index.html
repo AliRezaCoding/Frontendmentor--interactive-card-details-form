@@ -22,7 +22,12 @@
                     <span class="card__number">0000 0000 0000 0000</span>
                     <div class="card__bottom">
                         <span class="card__owner">jane appleseed</span>
-                        <span class="card__date">00/00</span>
+                        <span class="card__date">
+                            <span class="card__date-month">00</span>/<span
+                                class="card__date-year"
+                                >00</span
+                            >
+                        </span>
                     </div>
                 </div>
                 <div class="card__back">
@@ -40,6 +45,11 @@
                             id="input-name"
                             type="text"
                             placeholder="e.g. Jane Appleseed" />
+                        <label
+                            class="form__label--error hidden"
+                            for="input-card-number"
+                            >this is an error</label
+                        >
                     </div>
                     <div class="form__control form__control--number">
                         <label class="form__label" for="input-card-number"
@@ -49,6 +59,7 @@
                             class="form__input form__input-number"
                             id="input-card-number"
                             type="text"
+                            maxlength="19"
                             placeholder="e.g. 1234 5678 9123 0000" />
                         <label
                             class="form__label--error hidden"
@@ -63,11 +74,13 @@
                         <input
                             class="form__input form__input-month"
                             id="input-month"
-                            type="number"
+                            type="text"
+                            maxlength="2"
                             placeholder="MM" />
                         <input
                             class="form__input form__input-year"
-                            type="number"
+                            type="text"
+                            maxlength="2"
                             placeholder="YY" />
                         <label
                             class="form__label--error hidden"
@@ -80,7 +93,8 @@
                         <input
                             class="form__input form__input-cvc"
                             id="input-cvc"
-                            type="number"
+                            type="text"
+                            maxlength="3"
                             placeholder="e.g. 123" />
                         <label class="form__label--error hidden" for="input-cvc"
                             >this is an error</label
@@ -90,7 +104,12 @@
                 </form>
 
                 <!-- Completed state start -->
-                <!-- Thank you! We've added your card details Continue -->
+                <div class="success hidden">
+                    <img src="images/icon-complete.svg" alt="Complete" />
+                    <h2>Thank you!</h2>
+                    <p>We've added your card details</p>
+                    <button class="success__btn">Continue</button>
+                </div>
             </section>
         </main>
     </body>
