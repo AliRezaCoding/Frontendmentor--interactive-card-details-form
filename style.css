@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
 
 :root{
     /* (active input border) */
@@ -25,7 +25,7 @@ html{
 }
 
 body{
-    font-family: system-ui;
+    font-family: "Space Grotesk", sans-serif;
     font-size: 1.8rem;
     min-height: 100vh;
 }
