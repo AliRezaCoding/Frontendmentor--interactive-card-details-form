@@ -1,5 +1,4 @@
 'use strict';
-
 const formContainer = document.querySelector('.details');
 const form = document.querySelector('.form');
 const inputName = document.querySelector('.form__input-name');
@@ -9,11 +8,6 @@ const inputYear = document.querySelector('.form__input-year');
 const inputCvc = document.querySelector('.form__input-cvc');
 const successBtn = document.querySelector('.success__btn');
 const successMessage = document.querySelector('.success');
-
-const cardLabelNumber = document.querySelector('.card__number');
-const cardLabelOwner = document.querySelector('.card__owner');
-const cardLabelDate = document.querySelector('.card__date');
-const cardLabelCvc = document.querySelector('.card__cvc');
 /////////////////////////////////////
 
 const selectInputLabelErr = input =>
@@ -21,47 +15,28 @@ const selectInputLabelErr = input =>
 
 form.addEventListener('input', e => {
     const input = e.target;
-
     // Remove input error state
     selectInputLabelErr(input).classList.add('hidden');
     input.classList.remove('form__input--error');
 
-    if (input === inputName) {
-        cardLabelOwner.textContent = input.value;
-        if (!input.value) cardLabelOwner.textContent = 'jane appleseed';
-    }
+    const inputLabelCard = document.querySelector(`.${input.dataset.addTo}`);
     if (input === inputNumber) {
         // REGEX
         const formatRegex = /(\w{4})(?=\w)/g;
         const formattedInput = input.value
             .replace(formatRegex, '$1 ')
             .toUpperCase();
-
         input.value = formattedInput;
-        cardLabelNumber.textContent = formattedInput;
-        if (!input.value) cardLabelNumber.textContent = '0000 0000 0000 0000';
     }
-    if (input === inputMonth) {
-        const labelMonth = cardLabelDate.querySelector('.card__date-month');
-        labelMonth.textContent =
-            +input.value.length < 2
-                ? input.value.padStart(2, '0')
-                : input.value;
 
-        if (!input.value) labelMonth.textContent = '00';
+    if (input === inputMonth || input === inputYear) {
+        inputLabelCard.textContent = input.value.padStart(2, '0');
+    } else {
+        inputLabelCard.textContent = input.value;
     }
-    if (input === inputYear) {
-        const labelYear = cardLabelDate.querySelector('.card__date-year');
-        labelYear.textContent =
-            +input.value.length < 2
-                ? input.value.padStart(2, '0')
-                : input.value;
 
-        if (!input.value) labelYear.textContent = '00';
-    }
-    if (input === inputCvc) {
-        cardLabelCvc.textContent = input.value;
-        if (!input.value) cardLabelCvc.textContent = '000';
+    if(!input.value) {
+        inputLabelCard.textContent = inputLabelCard.dataset.default;
     }
 });
 
@@ -79,7 +54,7 @@ form.addEventListener('submit', e => {
         inputNumber.classList.add('form__input--error');
         validated = false;
     }
-    if(inputNumber.value.length < 19){
+    if (inputNumber.value.length < 19) {
         const inputErrLabel = selectInputLabelErr(inputNumber);
         inputErrLabel.textContent = 'Invalid number';
         inputErrLabel.classList.remove('hidden');
@@ -143,9 +118,9 @@ form.addEventListener('submit', e => {
         }
     });
 
-    if(!validated) return;
+    if (!validated) return;
     form.classList.add('hidden');
     successMessage.classList.remove('hidden');
 });
 
-successBtn.addEventListener('click', ()=> location.reload());
+successBtn.addEventListener('click', () => location.reload());
