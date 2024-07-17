@@ -81,7 +81,7 @@ body{
     height: auto;
 }
 .card__number{
-    font-size: 2rem;
+    font-size: 1.6rem;
     letter-spacing: 2px;
     display: block;
     color: var(--White);
@@ -259,6 +259,7 @@ body{
         height: 7rem;
     }
     .card__number{
+        font-size: 2rem;
         margin-top: 2rem;
     }
     .card__bottom{
